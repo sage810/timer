@@ -1,0 +1,10 @@
+{
+  "name": "pomodoro-timer",
+  "private": true,
+  "type": "module",
+  "description": "ADHD 친화 뽀모도로 타이머 (GitHub Pages)",
+  "scripts": {
+    "serve": "node scripts/serve.mjs",
+    "memo": "node scripts/memo.mjs"
+  }
+}
