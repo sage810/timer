@@ -1,0 +1,352 @@
+/* 신현중 정보 수업 활동지 디자인 토큰 — 자동 생성(design/build.mjs). 직접 고치지 말고 tokens.json 을 고친다.
+   원본 규칙: docs/rules/design.md · 쓰는 법: design/README.md
+   폰트 경로는 이 파일 기준 fonts/ — 다른 곳에 두면 url() 을 맞춘다. */
+
+@font-face{font-family:'GangwonEdu';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/GangwonEdu-400.woff2') format('woff2');}
+@font-face{font-family:'CookieRun';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/CookieRun-400.woff2') format('woff2');}
+@font-face{font-family:'CookieRun';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/CookieRun-700.woff2') format('woff2');}
+@font-face{font-family:'Maplestory';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/Maplestory-300.woff2') format('woff2');}
+@font-face{font-family:'Maplestory';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/Maplestory-700.woff2') format('woff2');}
+@font-face{font-family:'Silkscreen';font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F;src:url('fonts/Silkscreen-400.woff2') format('woff2');}
+@font-face{font-family:'Silkscreen';font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F;src:url('fonts/Silkscreen-700.woff2') format('woff2');}
+
+:root{
+  /* color */
+  --msi-ink: #4b3b6b;   /* 모든 테두리 · 본문 글자 */
+  --msi-paper: #fffdf7;   /* 카드 바탕(크림) */
+  --msi-paper-pink: #fdf6fa;   /* 입력칸 · 분홍빛 카드 바탕 */
+  --msi-page: #e7e3f7;   /* 페이지 배경 */
+  --msi-grid: #d8d2ee;   /* 배경 격자선 */
+  --msi-pink: #f9cade;
+  --msi-pink-strong: #f7a8c4;
+  --msi-pink-edge: #ee9dbf;   /* 포커스 테두리 */
+  --msi-purple: #d6c4f5;
+  --msi-purple-mut: #c9c2ea;
+  --msi-blue: #c4d8f7;
+  --msi-blue-strong: #9db2f2;   /* 주요 버튼 */
+  --msi-mint: #bfe9dd;
+  --msi-aqua: #a9dce4;
+  --msi-yellow: #fbe6a2;
+  --msi-yellow-cap: #f0c95c;
+  --msi-green: #d8f0c4;
+  --msi-green-mut: #c9e8b8;
+  --msi-apricot: #ffe0cc;
+  --msi-salmon: #f7bfb2;
+  --msi-sky: #cfeaf5;
+  --msi-lilac: #eec6ea;
+  --msi-beige: #e8d9b8;
+  --msi-olive: #e3e0b0;
+  --msi-sage: #c9e4dc;   /* 예비 파스텔 — 흐린 민트 */
+  --msi-sky-2: #b8d8e8;   /* 예비 파스텔 — 흐린 하늘 */
+  --msi-moss: #d4e0b0;   /* 예비 파스텔 — 흐린 연두 */
+  --msi-rose-dust: #e8c4c4;   /* 예비 파스텔 — 흐린 장미 */
+  --msi-peri: #c4cce8;   /* 예비 파스텔 — 흐린 보라-파랑 */
+  --msi-muted: #8b7cb8;   /* 캡션 — 크림 위 3.6:1 이라 작은 설명 글자에는 muted-2 를 권함 */
+  --msi-muted-2: #6b5b93;   /* 설명 글자 · 비활성 탭 (크림 위 5.8:1) */
+  --msi-muted-3: #a596cc;   /* 자리표시자 · 아주 흐린 보조 */
+  --msi-link: #c96a97;
+  --msi-link-hover: #8f6fd6;
+  --msi-footer: #6b7fa8;
+  --msi-button-ink: #26224a;   /* 주요 버튼(blue-strong) 위 글자 */
+  --msi-placeholder: #b3a8cc;
+  --msi-status-past-bg: #ece9f3;   /* 완료 — 색만으로 구분하지 말고 글자도 함께 */
+  --msi-status-past-ink: #8a82a6;
+  --msi-status-live-bg: #7b5cd6;   /* 진행 중 */
+  --msi-status-live-ink: #fffdf7;
+  --msi-status-upcoming-bg: #fffdf7;   /* 예정 — 점선 테두리 status-upcoming-line */
+  --msi-status-upcoming-ink: #7b6ba8;
+  --msi-status-upcoming-line: #cfc6e6;
+  --msi-accent-1: var(--msi-aqua);   /* 카드 accent 8색 순환(§4.1) — 8번 다음은 다시 1번 */
+  --msi-accent-2: var(--msi-blue);
+  --msi-accent-3: var(--msi-yellow);
+  --msi-accent-4: var(--msi-purple);
+  --msi-accent-5: var(--msi-mint);
+  --msi-accent-6: var(--msi-lilac);
+  --msi-accent-7: var(--msi-salmon);
+  --msi-accent-8: var(--msi-olive);
+  --msi-shadow-strong: rgba(75,59,107,.22);   /* 메인 창 그림자 색 */
+  --msi-shadow: rgba(75,59,107,.18);   /* 카드 */
+  --msi-shadow-soft: rgba(75,59,107,.15);   /* 작은 요소 */
+  --msi-shadow-press: rgba(75,59,107,.35);   /* 눌린 상태 */
+  --msi-divider: rgba(75,59,107,.25);   /* 점선 구분선 */
+  /* font */
+  --msi-font-display: 'GangwonEdu','Do Hyeon','Apple SD Gothic Neo','Malgun Gothic',sans-serif;   /* 페이지·섹션 큰 제목 */
+  --msi-font-round: 'CookieRun','Jua','Apple SD Gothic Neo','Malgun Gothic',sans-serif;   /* 소제목·버튼·칩·표 머리 (700) */
+  --msi-font-body: 'Maplestory','Gowun Dodum','Apple SD Gothic Neo','Malgun Gothic',sans-serif;   /* 본문·입력 (300 / 700) */
+  --msi-font-pixel: 'Silkscreen',monospace;   /* 영문·숫자 전용 라벨 — 한글에 쓰지 않음 */
+  /* font-size */
+  --msi-fs-display-lg: 30px;   /* 페이지 제목 (30–36) */
+  --msi-fs-display-md: 25px;   /* 창 타이틀바 제목 */
+  --msi-fs-title: 20px;   /* 카드 제목 (round 700) */
+  --msi-fs-subtitle: 17px;
+  --msi-fs-button: 18px;
+  --msi-fs-input: 16px;
+  --msi-fs-body: 15px;
+  --msi-fs-small: 14px;   /* 설명·캡션 */
+  --msi-fs-pixel: 11px;   /* Silkscreen 라벨 */
+  --msi-fs-pixel-xs: 9px;
+  /* line-height */
+  --msi-lh-body: 1.7;
+  --msi-lh-tight: 1.3;
+  /* space */
+  --msi-space-page-y: 28px;
+  --msi-space-page-x: 20px;
+  --msi-space-page-bottom: 60px;
+  --msi-space-stack: 18px;   /* 창·카드 사이 세로 간격 */
+  --msi-space-inner: 12px;   /* 카드 안 간격 */
+  --msi-space-window-y: 24px;
+  --msi-space-window-x: 22px;
+  --msi-space-card-head-y: 8px;
+  --msi-space-card-head-x: 14px;
+  --msi-space-card-body-y: 18px;
+  --msi-space-card-body-x: 20px;
+  --msi-space-grid-cell: 28px;   /* 배경 격자 칸 */
+  /* size */
+  --msi-size-content-max: 1080px;
+  --msi-size-doc-max: 980px;   /* 문서형 화면 */
+  --msi-size-touch-min: 44px;   /* 손가락으로 누르는 것의 최소 높이(태블릿·크롬북) */
+  /* border-width */
+  --msi-bw-window: 4px;
+  --msi-bw-default: 3px;   /* 카드·칩·입력·버튼·태그 */
+  --msi-bw-divider: 2px;
+  /* radius */
+  --msi-radius-window: 16px;
+  --msi-radius-card: 14px;
+  --msi-radius-box: 11px;   /* 힌트 박스 */
+  --msi-radius-button: 10px;
+  --msi-radius-field: 9px;   /* 입력·칩 */
+  --msi-radius-tag: 6px;
+  --msi-radius-pill: 999px;
+  /* shadow */
+  --msi-shadow-window: 8px 8px 0 var(--msi-shadow-strong);   /* 그림자는 늘 블러 0(하드 섀도우) */
+  --msi-shadow-topic: 6px 6px 0 rgba(75,59,107,.2);
+  --msi-shadow-card: 5px 5px 0 var(--msi-shadow);
+  --msi-shadow-button: 4px 4px 0 rgba(75,59,107,.3);
+  --msi-shadow-chip: 3px 3px 0 var(--msi-shadow-soft);
+  --msi-shadow-press: 1px 1px 0 var(--msi-shadow-press);   /* 눌림 — 함께 translate(3px,3px) */
+  /* gradient */
+  --msi-gradient-titlebar: linear-gradient(90deg,#f9cade 0%,#d6c4f5 55%,#c4d8f7 100%);   /* 창 타이틀바(90도) */
+  --msi-gradient-topic: linear-gradient(90deg,#f9cade 0%,#d6c4f5 100%);
+  /* focus */
+  --msi-focus-width: 3px;   /* 색은 color.pink-edge — 포커스 표시는 지우지 않는다 */
+  --msi-focus-offset: 2px;
+  /* duration */
+  --msi-duration-floaty: 3s;   /* 떠다니는 아이콘 정도만 — 과한 움직임 금지, prefers-reduced-motion 존중 */
+  /* glass */
+  --msi-glass-top: radial-gradient(120% 70% at 50% 0%,rgba(255,255,255,.75),rgba(255,255,255,0) 62%);   /* 유리 알약 윗면 빛띠(버튼·칩·PDF) */
+  --msi-glass-top-head: radial-gradient(120% 70% at 50% 0%,rgba(255,255,255,.7),rgba(255,255,255,0) 62%);   /* 유리 머리 윗면 빛띠(카드 머리·탭·보기 버튼) */
+  --msi-glass-sheen: linear-gradient(100deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.6) 50%,rgba(255,255,255,0) 58%);   /* 올리면 지나가는 빛 한 줄(background-size 300%, position 100% → 0%) */
+  --msi-glass-white: linear-gradient(150deg,rgba(255,255,255,.62),rgba(255,255,255,.14) 55%,rgba(255,255,255,.42));   /* 흰 유리 막(오로라 속 위) */
+  --msi-glass-inset: inset 0 1.5px 0 rgba(255,255,255,.95), inset 0 -8px 14px -10px rgba(255,255,255,.9);   /* 유리 알약 안쪽 흰 테(위 1.5px · 아래 속광) — box-shadow 앞쪽에 */
+  --msi-glass-inset-big: inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 -10px 18px -12px rgba(255,255,255,.9);   /* PDF 큰 알약 안쪽 흰 테 */
+  --msi-glass-inset-head: inset 0 2px 0 rgba(255,255,255,.95), inset 0 -8px 12px -8px rgba(255,255,255,.95);   /* 유리 머리 안쪽 흰 테(::after 에) */
+  --msi-glass-backdrop: blur(14px) saturate(170%);   /* PDF 버튼 뒤 흐림(backdrop-filter) — 터치 기기에선 끔 */
+  /* motion */
+  --msi-motion-ease-spring: cubic-bezier(.34,1.56,.64,1);   /* 물방울 꾹(누름) — 튕기는 곡선 */
+  --msi-motion-ease-out: cubic-bezier(.2,0,0,1);   /* 빛 쓱 · 그림자 · 펼침 */
+  --msi-motion-press: scale(1.04,.9);   /* 유리 알약·칩 누름 */
+  --msi-motion-press-big: scale(1.03,.92);   /* PDF 큰 알약 누름 */
+  /* role */
+  --msi-role-page-bg: #e7e3f7;   /* 창 바깥 배경 바탕 라벤더 */
+  --msi-role-page-grid: rgba(216,210,238,.75);   /* 바깥 배경 모눈 선(28px) */
+  --msi-role-aurora-pink: #f7b3d6;   /* 오로라 빛 — 분홍(바깥 배경·창·TODAY_TOPIC·MY_INFO·PDF 버튼 뒤 빛) */
+  --msi-role-aurora-sky: #9fd3f7;   /* 오로라 빛 — 하늘 */
+  --msi-role-aurora-lavender: #c4b2f7;   /* 오로라 빛 — 라벤더 */
+  --msi-role-aurora-lavender-a20: rgba(196,178,247,.2);   /* 오로라 lavender 20% — aurora-lavender 를 바꾸면 같이 바꾼다(PDF 캡처가 color-mix 를 못 읽어 따로 둠) */
+  --msi-role-aurora-lavender-a28: rgba(196,178,247,.28);   /* 오로라 lavender 28% — aurora-lavender 를 바꾸면 같이 바꾼다(PDF 캡처가 color-mix 를 못 읽어 따로 둠) */
+  --msi-role-aurora-lavender-a60: rgba(196,178,247,.6);   /* 오로라 lavender 60% — aurora-lavender 를 바꾸면 같이 바꾼다(PDF 캡처가 color-mix 를 못 읽어 따로 둠) */
+  --msi-role-aurora-pink-a20: rgba(247,179,214,.2);   /* 오로라 pink 20% — aurora-pink 를 바꾸면 같이 바꾼다(PDF 캡처가 color-mix 를 못 읽어 따로 둠) */
+  --msi-role-aurora-pink-a32: rgba(247,179,214,.32);   /* 오로라 pink 32% — aurora-pink 를 바꾸면 같이 바꾼다(PDF 캡처가 color-mix 를 못 읽어 따로 둠) */
+  --msi-role-aurora-pink-a60: rgba(247,179,214,.6);   /* 오로라 pink 60% — aurora-pink 를 바꾸면 같이 바꾼다(PDF 캡처가 color-mix 를 못 읽어 따로 둠) */
+  --msi-role-aurora-sky-a20: rgba(159,211,247,.2);   /* 오로라 sky 20% — aurora-sky 를 바꾸면 같이 바꾼다(PDF 캡처가 color-mix 를 못 읽어 따로 둠) */
+  --msi-role-aurora-sky-a32: rgba(159,211,247,.32);   /* 오로라 sky 32% — aurora-sky 를 바꾸면 같이 바꾼다(PDF 캡처가 color-mix 를 못 읽어 따로 둠) */
+  --msi-role-aurora-sky-a60: rgba(159,211,247,.6);   /* 오로라 sky 60% — aurora-sky 를 바꾸면 같이 바꾼다(PDF 캡처가 color-mix 를 못 읽어 따로 둠) */
+  --msi-role-window-body: #fffdf7;   /* 창 몸통(크림 서리 유리의 바탕) */
+  --msi-role-titlebar-head: linear-gradient(90deg,#f9cade 0%,#d6c4f5 55%,#c4d8f7 100%);   /* 제목줄(학교 이름 + 탭) */
+  --msi-role-tab-rules: linear-gradient(135deg,#fff6d6 0%,#ffe6c7 55%,#ffd6d6 100%);   /* 고른 탭 — 이용 규칙(솜사탕) */
+  --msi-role-tab-time: linear-gradient(135deg,#e3f4ff 0%,#d9e2ff 55%,#e6d9ff 100%);   /* 고른 탭 — 시간표 */
+  --msi-role-tab-meal: linear-gradient(135deg,#e8fbe9 0%,#d4f4ec 55%,#d6ecff 100%);   /* 고른 탭 — 오늘의 급식 */
+  --msi-role-tab-sheet: linear-gradient(135deg,#fde1f3 0%,#e7dcff 50%,#d6f1ff 100%);   /* 고른 탭 — 수업 활동지(오로라) */
+  --msi-role-topic-head: linear-gradient(90deg,#d6c4f5 0%,#c4d8f7 55%,#cfeaf5 100%);   /* TODAY_TOPIC 머리(보라→하늘) */
+  --msi-role-topic-body: #f6f8fd;   /* TODAY_TOPIC 몸통 */
+  --msi-role-myinfo-head: #fbe6a2;   /* MY_INFO 머리(노랑) */
+  --msi-role-myinfo-body: #fffdf7;   /* MY_INFO 몸통 */
+  --msi-role-goals-head: #e8c4c4;   /* TODAY_GOALS 머리(로즈 더스트) */
+  --msi-role-goals-body: #fcf5f5;   /* TODAY_GOALS 몸통 */
+  --msi-role-goals-coin: linear-gradient(135deg,#f8e6e6,#e8c4c4);   /* 오늘의 목표 번호 동전 */
+  --msi-role-warmup-head: #c9e4dc;   /* 도입 WARM_UP 머리(세이지) */
+  --msi-role-warmup-body: #f3faf7;   /* 도입 WARM_UP 몸통 */
+  --msi-role-intro-head: #d8f0c4;   /* 도입 TODAY_TOPIC(학습주제 제시) 머리(연두) */
+  --msi-role-intro-body: #f7fcf2;   /* 도입 TODAY_TOPIC 몸통 */
+  --msi-role-act1-head: #c4d8f7;   /* 전개 ACTIVITY_1 머리·질문 스티커(하늘) */
+  --msi-role-act1-body: #f4f8fe;   /* ACTIVITY_1 몸통 */
+  --msi-role-act2-head: #bfe9dd;   /* ACTIVITY_2 머리·질문 스티커(민트) */
+  --msi-role-act2-body: #f1fbf7;   /* ACTIVITY_2 몸통 */
+  --msi-role-act3-head: linear-gradient(90deg,#f1f8b8 0%,#d6f0a8 100%);   /* ACTIVITY_3 머리·질문 스티커(라임 소다) */
+  --msi-role-act3-body: #fbfdf0;   /* ACTIVITY_3 몸통 */
+  --msi-role-act4-head: #d6c4f5;   /* ACTIVITY_4 머리·질문 스티커(라벤더) */
+  --msi-role-act4-body: #f8f4fe;   /* ACTIVITY_4 몸통 */
+  --msi-role-summary-head: #f7bfb2;   /* 정리 KEY_SUMMARY 머리(연어) */
+  --msi-role-summary-body: #fff4f1;   /* KEY_SUMMARY 몸통 */
+  --msi-role-checkup-head: #eec6ea;   /* 정리 CHECK_UP 머리(라일락) */
+  --msi-role-checkup-body: #fdf5fc;   /* CHECK_UP 몸통 */
+  --msi-role-checkup-coin: linear-gradient(135deg,#f9e3f6,#eec6ea);   /* 형성평가 번호 동전 */
+  --msi-role-progress-head: #ffe0cc;   /* 왼쪽 PROGRESS 머리(살구) */
+  --msi-role-progress-body: #fffdf7;   /* PROGRESS 몸통 */
+  --msi-role-help-head: #e8d9b8;   /* 왼쪽 HELP 머리(베이지) */
+  --msi-role-help-body: #fffdf7;   /* HELP 몸통 */
+  --msi-role-pdf-btn: linear-gradient(120deg,rgba(253,225,243,.75),rgba(231,220,255,.75) 50%,rgba(214,241,255,.75));   /* PDF 버튼 유리 속(오로라) */
+  --msi-role-pdf-done: linear-gradient(135deg,#a8e6cf 0%,#7fd6c0 100%);   /* PDF 저장 끝남(민트) */
+  --msi-role-pdf-error: linear-gradient(135deg,#ffb3bd 0%,#f58a9b 100%);   /* PDF 저장 실패(연어) */
+  --msi-role-chip-glass: linear-gradient(120deg,rgba(253,225,243,.75),rgba(231,220,255,.75) 50%,rgba(214,241,255,.75));   /* 고르기 칩(분석 유형) 유리 속 — PDF 버튼과 같은 오로라 */
+  --msi-role-chip-ok: linear-gradient(135deg,#a8e6cf 0%,#7fd6c0 100%);   /* 고르기 칩 — 맞게 고름(민트 + ✓) */
+  --msi-role-chip-no: linear-gradient(135deg,#ffb3bd 0%,#f58a9b 100%);   /* 고르기 칩 — 틀리게 고름(연어 + ✗) */
+  --msi-role-howto-head: linear-gradient(90deg,#d6c4f5 0%,#c4d8f7 55%,#cfeaf5 100%);   /* 이용 규칙 HOW_TO_USE 머리 */
+  --msi-role-howto-body: #f6f8fd;   /* HOW_TO_USE 몸통 */
+  --msi-role-rule1-head: linear-gradient(90deg,#ffe3d0,#ffd0c4);   /* RULE_01 머리(피치 셔벗) */
+  --msi-role-rule1-body: #fff8f4;   /* RULE_01 몸통 */
+  --msi-role-rule2-head: linear-gradient(90deg,#f1f8b8,#d6f0a8);   /* RULE_02 머리(라임 소다) */
+  --msi-role-rule2-body: #fbfdf0;   /* RULE_02 몸통 */
+  --msi-role-rule3-head: #bfe9dd;   /* RULE_03 머리(민트) */
+  --msi-role-rule3-body: #f2fbf7;   /* RULE_03 몸통 */
+  --msi-role-message-head: #d6c4f5;   /* MESSAGE 머리(라벤더) */
+  --msi-role-message-body: #fffdf7;   /* MESSAGE 몸통 */
+  --msi-role-loading-head: #fbe6a2;   /* LOADING 머리(노랑) */
+  --msi-role-loading-body: #fffdf7;   /* LOADING 몸통 */
+  --msi-role-view-day: linear-gradient(135deg,#fbf1d2,#f1dfb6);   /* 고른 보기 버튼 — 일간(바닐라) · 시간표·급식 같음 */
+  --msi-role-view-week: linear-gradient(135deg,#e7f1e4,#d2e5cc);   /* 고른 보기 버튼 — 주간(세이지) */
+  --msi-role-view-month: linear-gradient(135deg,#f6e1e6,#e8cad3);   /* 고른 보기 버튼 — 월간(로즈) */
+  --msi-role-tt-week-head: linear-gradient(90deg,#d6c4f5 0%,#c4d8f7 55%,#cfeaf5 100%);   /* 시간표 주간 머리 줄(TIME·월~금) */
+  --msi-role-tt-month-head: linear-gradient(90deg,#d6c4f5 0%,#c4d8f7 55%,#cfeaf5 100%);   /* 시간표 월간 요일 줄(SUN~SAT) */
+  --msi-role-tt-time-col: #f7f4fd;   /* 시간표 주간 첫 열(교시 칸) */
+  --msi-role-tt-grade-box: #f7f4fd;   /* 시간표 GRADE/CLASS 상자 */
+  --msi-role-lunch-head: linear-gradient(90deg,#d6c4f5 0%,#c4d8f7 55%,#cfeaf5 100%);   /* 급식 일간 TODAY_LUNCH 머리 */
+  --msi-role-lunch-body: #fffdf7;   /* TODAY_LUNCH 몸통 */
+  --msi-role-lunch-total: linear-gradient(90deg,#ffe3d0,#ffd0c4);   /* 급식 TOTAL 칼로리 상자(피치 셔벗) */
+  --msi-role-lunch-month-head: linear-gradient(90deg,#d6c4f5 0%,#c4d8f7 55%,#cfeaf5 100%);   /* 급식 월간 요일 줄 */
+  --msi-role-lunch-mon: linear-gradient(135deg,#ffc9bf,#ffb3a7);   /* 급식 주간 월요일 카드 머리(코랄) */
+  --msi-role-lunch-tue: linear-gradient(135deg,#ffe4a3,#ffd685);   /* 화요일(살구노랑) */
+  --msi-role-lunch-wed: linear-gradient(135deg,#d9f2b4,#c2e89a);   /* 수요일(연두) */
+  --msi-role-lunch-thu: linear-gradient(135deg,#b5e8e4,#99dbd6);   /* 목요일(청록) */
+  --msi-role-lunch-fri: linear-gradient(135deg,#c9cbf7,#b3b6ef);   /* 금요일(라벤더블루) */
+  --msi-role-subj-korean: linear-gradient(135deg,#f8b8ca,#fca3be);   /* 국어 — 언어(분홍) */
+  --msi-role-subj-english: linear-gradient(135deg,#fed5e0,#ffc3d4);   /* 영어 — 언어 */
+  --msi-role-subj-hanmun: linear-gradient(135deg,#ffedff,#fddbfd);   /* 한문 — 언어 */
+  --msi-role-subj-chinese: linear-gradient(135deg,#fef2f1,#ffe4e1);   /* 생활 중국어 — 언어 */
+  --msi-role-subj-social: linear-gradient(135deg,#f2c19a,#f5b076);   /* 사회 — 사회(주황·금빛) */
+  --msi-role-subj-history: linear-gradient(135deg,#fed9c3,#fec9aa);   /* 역사 — 사회 */
+  --msi-role-subj-ethics: linear-gradient(135deg,#fff4dd,#fde9be);   /* 도덕 — 사회 */
+  --msi-role-subj-pe: linear-gradient(135deg,#c6d59c,#b8cc79);   /* 체육 — 예체능(연두·초록) */
+  --msi-role-subj-art: linear-gradient(135deg,#e8e4b4,#e0d993);   /* 미술 — 예체능 */
+  --msi-role-subj-music: linear-gradient(135deg,#e4fde5,#d2f7d4);   /* 음악 — 예체능 */
+  --msi-role-subj-math: linear-gradient(135deg,#93ddce,#64d8c4);   /* 수학 — 수리·과학(민트·하늘) */
+  --msi-role-subj-science: linear-gradient(135deg,#c2eecf,#a7e8bb);   /* 과학 — 수리·과학 */
+  --msi-role-subj-info: linear-gradient(135deg,#e1fbfe,#bdf7ff);   /* 정보 — 수리·과학 */
+  --msi-role-subj-tech-home: linear-gradient(135deg,#b0eef6,#8ae7f3);   /* 기술·가정 — 수리·과학 */
+  --msi-role-subj-club: linear-gradient(135deg,#d4c2f8,#ccb1fe);   /* 동아리활동 — 창체(파랑·보라) */
+  --msi-role-subj-autonomy: linear-gradient(135deg,#a0d3f8,#7ecaff);   /* 자율·자치활동 — 창체 */
+  --msi-role-subj-career: linear-gradient(135deg,#ecd8ff,#e5c8ff);   /* 진로활동 — 창체 */
+  --msi-role-subj-self: linear-gradient(135deg,#d0e3fe,#bdd8fe);   /* 자율활동 — 창체 */
+  --msi-role-subj-volunteer: linear-gradient(135deg,#f1f5fe,#e2ebff);   /* 봉사활동 — 창체 */
+  --msi-role-allergen-1: #ffd1d3;   /* 급식 알레르기 1 난류 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #ff4d6d) */
+  --msi-role-allergen-10: #d1deff;   /* 급식 알레르기 10 돼지고기 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #3d5afe) */
+  --msi-role-allergen-11: #dcd9fe;   /* 급식 알레르기 11 복숭아 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #7c4dff) */
+  --msi-role-allergen-12: #ead3ff;   /* 급식 알레르기 12 토마토 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #b429ff) */
+  --msi-role-allergen-13: #f7cdfe;   /* 급식 알레르기 13 아황산류 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #e040fb) */
+  --msi-role-allergen-14: #fecfde;   /* 급식 알레르기 14 호두 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #ff2d95) */
+  --msi-role-allergen-15: #fed2ce;   /* 급식 알레르기 15 닭고기 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #ff5252) */
+  --msi-role-allergen-16: #ffd3c4;   /* 급식 알레르기 16 소고기 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #c1440e) */
+  --msi-role-allergen-17: #95f2e7;   /* 급식 알레르기 17 오징어 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #00867d) */
+  --msi-role-allergen-18: #d3ddff;   /* 급식 알레르기 18 조개류 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #5d6dff) */
+  --msi-role-allergen-19: #f6dc98;   /* 급식 알레르기 19 잣 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #8d6e00) */
+  --msi-role-allergen-2: #fed4be;   /* 급식 알레르기 2 우유 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #ff7a1a) */
+  --msi-role-allergen-3: #fdd899;   /* 급식 알레르기 3 메밀 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #ffb800) */
+  --msi-role-allergen-4: #ebe09a;   /* 급식 알레르기 4 땅콩 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #e8d000) */
+  --msi-role-allergen-5: #ceeaa9;   /* 급식 알레르기 5 대두 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #9ed900) */
+  --msi-role-allergen-6: #b9eeb9;   /* 급식 알레르기 6 밀 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #2fc744) */
+  --msi-role-allergen-7: #9cf2da;   /* 급식 알레르기 7 고등어 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #00c9a7) */
+  --msi-role-allergen-8: #98eefe;   /* 급식 알레르기 8 게 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #00bcd4) */
+  --msi-role-allergen-9: #c6e1ff;   /* 급식 알레르기 9 새우 — 파스텔 칩(잉크 글자 7:1↑, 2026-10-16 시안 A · 원래 형광 #0091ff) */
+  --msi-role-base-apricot: #ffe0cc;   /* DESIGN.md 팔레트 — apricot */
+  --msi-role-base-blush-paper: #fdf6fa;   /* DESIGN.md 팔레트 — blush-paper */
+  --msi-role-base-butter: #fbe6a2;   /* DESIGN.md 팔레트 — butter */
+  --msi-role-base-button-ink: #26224a;   /* DESIGN.md 팔레트 — button-ink */
+  --msi-role-base-cotton-pink: #f9cade;   /* DESIGN.md 팔레트 — cotton-pink */
+  --msi-role-base-cream-paper: #fffdf7;   /* DESIGN.md 팔레트 — cream-paper */
+  --msi-role-base-grid-line: #d8d2ee;   /* DESIGN.md 팔레트 — grid-line */
+  --msi-role-base-lavender: #d6c4f5;   /* DESIGN.md 팔레트 — lavender */
+  --msi-role-base-lavender-desk: #e7e3f7;   /* DESIGN.md 팔레트 — lavender-desk */
+  --msi-role-base-lilac: #eec6ea;   /* DESIGN.md 팔레트 — lilac */
+  --msi-role-base-link-berry: #c96a97;   /* DESIGN.md 팔레트 — link-berry */
+  --msi-role-base-live-violet: #7b5cd6;   /* DESIGN.md 팔레트 — live-violet */
+  --msi-role-base-mint: #bfe9dd;   /* DESIGN.md 팔레트 — mint */
+  --msi-role-base-muted-violet: #6b5b93;   /* DESIGN.md 팔레트 — muted-violet */
+  --msi-role-base-night-sky-ink: #4b3b6b;   /* DESIGN.md 팔레트 — night-sky-ink */
+  --msi-role-base-periwinkle: #c4d8f7;   /* DESIGN.md 팔레트 — periwinkle */
+  --msi-role-base-periwinkle-strong: #9db2f2;   /* DESIGN.md 팔레트 — periwinkle-strong */
+  --msi-role-base-placeholder-haze: #b3a8cc;   /* DESIGN.md 팔레트 — placeholder-haze */
+  --msi-role-base-salmon: #f7bfb2;   /* DESIGN.md 팔레트 — salmon */
+  --msi-role-base-sand: #e8d9b8;   /* DESIGN.md 팔레트 — sand */
+  --msi-role-base-sky: #cfeaf5;   /* DESIGN.md 팔레트 — sky */
+  --msi-role-base-sprout: #d8f0c4;   /* DESIGN.md 팔레트 — sprout */
+  --msi-role-base-white: #ffffff;   /* DESIGN.md 팔레트 — white */
+  --msi-role-ui-aqua: #a9dce4;   /* 아쿠아 칩(동아리 시간 등) */
+  --msi-role-ui-badge-ink: #6b5b93;   /* 월간 시간표 표시 글자 */
+  --msi-role-ui-busy-a: #c4cce8;   /* 처리 중 줄무늬 A */
+  --msi-role-ui-busy-b: #d6dcf3;   /* 처리 중 줄무늬 B */
+  --msi-role-ui-callout-ask: #fff6e6;   /* 안내 상자 — 질문 */
+  --msi-role-ui-callout-reason: #eef9f3;   /* 안내 상자 — 이유 */
+  --msi-role-ui-callout-tip: #f3eefe;   /* 안내 상자 — 팁 */
+  --msi-role-ui-callout-warn: #fdf0ee;   /* 안내 상자 — 주의 */
+  --msi-role-ui-caption-violet: #6b5b93;   /* 작은 캡션 글자(EMPTY · DROP HERE · KCAL 등) */
+  --msi-role-ui-date-ink: #5a4a86;   /* 날짜 글자 */
+  --msi-role-ui-deep-violet: #6b559b;   /* 진한 보라 글자(순서 배열 태그 등) */
+  --msi-role-ui-empty-cell: #f1edf9;   /* 빈 칸·다른 달 칸 바탕 */
+  --msi-role-ui-empty-ink: #b9aedb;   /* 빈 시간표 칸 글자 */
+  --msi-role-ui-feedback-no-bg: #fdf3f0;   /* 퀴즈 틀림 바탕 */
+  --msi-role-ui-feedback-no-ink: #a65a86;   /* 퀴즈 틀림 글자 · GOAL 라벨 */
+  --msi-role-ui-feedback-ok-bg: #eaf8f2;   /* 퀴즈 맞음 바탕 */
+  --msi-role-ui-feedback-ok-ink: #3d7f6c;   /* 퀴즈 맞음 글자 */
+  --msi-role-ui-focus-pink: #ee9dbf;   /* 입력·끌어 놓기 칸 포커스·강조 테두리 */
+  --msi-role-ui-footer-ink: #556485;   /* 맨 아래 @sage810 */
+  --msi-role-ui-ghost-hover: #fff1ee;   /* 작은 보조 버튼 올림 */
+  --msi-role-ui-green-mut: #c9e8b8;   /* 흐린 초록(예전 과목 색 · 체육) */
+  --msi-role-ui-guide-body: #eef9f8;   /* 도움말 펼침 카드 바탕 */
+  --msi-role-ui-health-pink: #f5b7c8;   /* 예전 과목 색 · 보건 */
+  --msi-role-ui-help-box: #faf8ff;   /* 그래프 시각화하기 도움말 바탕 */
+  --msi-role-ui-help-btn-hover: #f1eff7;   /* HELP 버튼 올림 */
+  --msi-role-ui-help-btn-open: #e6def7;   /* HELP 버튼 펼침 */
+  --msi-role-ui-hl-lilac: #f6d3f0;   /* 형광펜 라일락 */
+  --msi-role-ui-link-hover: #5e498d;   /* 링크 올림 */
+  --msi-role-ui-live-row: #f6f2ff;   /* 시간표 — 지금 교시 줄 바탕 */
+  --msi-role-ui-note-ink: #79632c;   /* 시간표 NOTE 라벨 글자 */
+  --msi-role-ui-olive: #e3e0b0;   /* 올리브(예전 과목 색 · 자율) */
+  --msi-role-ui-pale-violet: #faf7ff;   /* 아주 옅은 보라 바탕 */
+  --msi-role-ui-paste-hint-ink: #6b5b93;   /* 붙여넣기 칸 안내 글자 */
+  --msi-role-ui-periwinkle-press: #8296e0;   /* 종이 버튼 눌림 바탕 */
+  --msi-role-ui-pink-strong: #f7a8c4;   /* 창 X 버튼 · 진한 분홍 칸 */
+  --msi-role-ui-purple-mut: #c9c2ea;   /* 흐린 보라 칩(동아리 활동 등) */
+  --msi-role-ui-soft-lavender: #f7f4fd;   /* 연보라 칸 바탕(주말·교시 칸·GRADE 상자) */
+  --msi-role-ui-status-past-bg: #ece9f3;   /* 상태 — 완료 바탕 */
+  --msi-role-ui-status-past-ink: #6b5b93;   /* 상태 — 완료 글자 */
+  --msi-role-ui-status-upcoming-ink: #7b6ba8;   /* 상태 — 예정 글자 */
+  --msi-role-ui-status-upcoming-line: #cfc6e6;   /* 상태 — 예정 점선 */
+  --msi-role-ui-step-red: #c0392b;   /* 단계 번호 빨강(흰 글자) */
+  --msi-role-ui-stripe-cream: #f8f1e2;   /* 빈 칸 줄무늬 크림 */
+  --msi-role-ui-stripe-violet-a: #fbf8ff;   /* 빈 칸 줄무늬 연보라 */
+  --msi-role-ui-stripe-violet-b: #f1ecfb;   /* 빈 칸 줄무늬 보라 */
+  --msi-role-ui-summary-th: #f6e6e6;   /* 핵심 요약 표 머리 */
+  --msi-role-ui-time-end-ink: #6b5b93;   /* 시간표 끝나는 시각 글자 */
+  --msi-role-ui-today-cell: #fdeaf3;   /* 달력 오늘 칸 바탕 */
+  --msi-role-ui-total-ink: #8a4f36;   /* 급식 TOTAL 글자 */
+  --msi-role-ui-placeholder: #746d85;   /* 입력칸 자리표시자 글자(분홍 종이 위 4.5:1↑, 2026-10-16 audit) */
+  /* part */
+  --msi-part-figure-max: 680px;   /* 그림·영상 최대 폭 */
+  --msi-part-slot-min: 176px;   /* 이름표를 놓는 칸 최소 폭 */
+  --msi-part-choice-radius: 22px;   /* 여러 줄이 되는 알약(긴 보기 고르기 칩·순서 카드) 모서리 */
+  --msi-part-ox-min: 56px;   /* O/X 버튼 최소 폭 */
+  --msi-part-gap: 10px;   /* 버튼 줄·개념 카드·이름표 줄 사이 */
+  --msi-part-figure-ratio: 680 / 300;   /* 그림을 누르면 나오는 영상 칸 기본 비율(그림과 같게, 다르면 그 영상에만 style 로) */
+}
+
+@keyframes msi-floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}

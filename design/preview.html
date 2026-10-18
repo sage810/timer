@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>디자인 토큰 미리보기</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="components.css">
+<style>/* 미리보기 전용 */
+.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.sw{display:grid;gap:2px;font-size:12px}.sw i{display:block;height:44px;border:3px solid var(--msi-ink);border-radius:9px}
+.sw b{font-family:var(--msi-font-round)}.sw code{color:var(--msi-muted-2)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+</style></head>
+<body style="margin:0">
+<!-- 자동 생성(design/build.mjs). 고칠 땐 tokens.json · components.css 를 고치고 node design/build.mjs -->
+<div class="msi-page"><div class="msi-wrap">
+<div class="msi-window">
+  <div class="msi-titlebar"><div class="msi-win-title">🏫 디자인 토큰 미리보기</div><div class="msi-spacer"></div>
+    <span class="msi-tag" style="background:var(--msi-purple)">DESIGN_TOKENS</span>
+    <div class="msi-win-btns"><span>_</span><span>□</span><span class="x">X</span></div></div>
+  <div class="msi-win-body">
+    <section class="msi-topic"><div class="msi-topic-bar">TODAY_TOPIC</div>
+      <div class="msi-topic-in"><div class="msi-eyebrow">INFO · DESIGN</div><h1 class="msi-h1">레트로 프로그램 창 디자인</h1>
+      <p style="margin:0">두꺼운 남보라 테두리 + 블러 없는 하드 섀도우 + 파스텔 격자 배경.</p></div></section>
+
+    <section class="msi-card" style="--accent:var(--msi-accent-1)"><div class="msi-card-head"><span>COLORS</span><span class="r">--msi-*</span></div>
+      <div class="msi-card-body"><div class="sw-grid">
+<div class="sw"><i style="background:var(--msi-ink)"></i><b>ink</b><code>#4b3b6b</code></div>
+<div class="sw"><i style="background:var(--msi-paper)"></i><b>paper</b><code>#fffdf7</code></div>
+<div class="sw"><i style="background:var(--msi-paper-pink)"></i><b>paper-pink</b><code>#fdf6fa</code></div>
+<div class="sw"><i style="background:var(--msi-page)"></i><b>page</b><code>#e7e3f7</code></div>
+<div class="sw"><i style="background:var(--msi-grid)"></i><b>grid</b><code>#d8d2ee</code></div>
+<div class="sw"><i style="background:var(--msi-pink)"></i><b>pink</b><code>#f9cade</code></div>
+<div class="sw"><i style="background:var(--msi-pink-strong)"></i><b>pink-strong</b><code>#f7a8c4</code></div>
+<div class="sw"><i style="background:var(--msi-pink-edge)"></i><b>pink-edge</b><code>#ee9dbf</code></div>
+<div class="sw"><i style="background:var(--msi-purple)"></i><b>purple</b><code>#d6c4f5</code></div>
+<div class="sw"><i style="background:var(--msi-purple-mut)"></i><b>purple-mut</b><code>#c9c2ea</code></div>
+<div class="sw"><i style="background:var(--msi-blue)"></i><b>blue</b><code>#c4d8f7</code></div>
+<div class="sw"><i style="background:var(--msi-blue-strong)"></i><b>blue-strong</b><code>#9db2f2</code></div>
+<div class="sw"><i style="background:var(--msi-mint)"></i><b>mint</b><code>#bfe9dd</code></div>
+<div class="sw"><i style="background:var(--msi-aqua)"></i><b>aqua</b><code>#a9dce4</code></div>
+<div class="sw"><i style="background:var(--msi-yellow)"></i><b>yellow</b><code>#fbe6a2</code></div>
+<div class="sw"><i style="background:var(--msi-yellow-cap)"></i><b>yellow-cap</b><code>#f0c95c</code></div>
+<div class="sw"><i style="background:var(--msi-green)"></i><b>green</b><code>#d8f0c4</code></div>
+<div class="sw"><i style="background:var(--msi-green-mut)"></i><b>green-mut</b><code>#c9e8b8</code></div>
+<div class="sw"><i style="background:var(--msi-apricot)"></i><b>apricot</b><code>#ffe0cc</code></div>
+<div class="sw"><i style="background:var(--msi-salmon)"></i><b>salmon</b><code>#f7bfb2</code></div>
+<div class="sw"><i style="background:var(--msi-sky)"></i><b>sky</b><code>#cfeaf5</code></div>
+<div class="sw"><i style="background:var(--msi-lilac)"></i><b>lilac</b><code>#eec6ea</code></div>
+<div class="sw"><i style="background:var(--msi-beige)"></i><b>beige</b><code>#e8d9b8</code></div>
+<div class="sw"><i style="background:var(--msi-olive)"></i><b>olive</b><code>#e3e0b0</code></div>
+<div class="sw"><i style="background:var(--msi-sage)"></i><b>sage</b><code>#c9e4dc</code></div>
+<div class="sw"><i style="background:var(--msi-sky-2)"></i><b>sky-2</b><code>#b8d8e8</code></div>
+<div class="sw"><i style="background:var(--msi-moss)"></i><b>moss</b><code>#d4e0b0</code></div>
+<div class="sw"><i style="background:var(--msi-rose-dust)"></i><b>rose-dust</b><code>#e8c4c4</code></div>
+<div class="sw"><i style="background:var(--msi-peri)"></i><b>peri</b><code>#c4cce8</code></div>
+<div class="sw"><i style="background:var(--msi-muted)"></i><b>muted</b><code>#8b7cb8</code></div>
+<div class="sw"><i style="background:var(--msi-muted-2)"></i><b>muted-2</b><code>#6b5b93</code></div>
+<div class="sw"><i style="background:var(--msi-muted-3)"></i><b>muted-3</b><code>#a596cc</code></div>
+<div class="sw"><i style="background:var(--msi-link)"></i><b>link</b><code>#c96a97</code></div>
+<div class="sw"><i style="background:var(--msi-link-hover)"></i><b>link-hover</b><code>#8f6fd6</code></div>
+<div class="sw"><i style="background:var(--msi-footer)"></i><b>footer</b><code>#6b7fa8</code></div>
+<div class="sw"><i style="background:var(--msi-button-ink)"></i><b>button-ink</b><code>#26224a</code></div>
+<div class="sw"><i style="background:var(--msi-placeholder)"></i><b>placeholder</b><code>#b3a8cc</code></div>
+<div class="sw"><i style="background:var(--msi-status-past-bg)"></i><b>status-past-bg</b><code>#ece9f3</code></div>
+<div class="sw"><i style="background:var(--msi-status-past-ink)"></i><b>status-past-ink</b><code>#8a82a6</code></div>
+<div class="sw"><i style="background:var(--msi-status-live-bg)"></i><b>status-live-bg</b><code>#7b5cd6</code></div>
+<div class="sw"><i style="background:var(--msi-status-live-ink)"></i><b>status-live-ink</b><code>#fffdf7</code></div>
+<div class="sw"><i style="background:var(--msi-status-upcoming-bg)"></i><b>status-upcoming-bg</b><code>#fffdf7</code></div>
+<div class="sw"><i style="background:var(--msi-status-upcoming-ink)"></i><b>status-upcoming-ink</b><code>#7b6ba8</code></div>
+<div class="sw"><i style="background:var(--msi-status-upcoming-line)"></i><b>status-upcoming-line</b><code>#cfc6e6</code></div>
+<div class="sw"><i style="background:var(--msi-accent-1)"></i><b>accent-1</b><code>{color.aqua}</code></div>
+<div class="sw"><i style="background:var(--msi-accent-2)"></i><b>accent-2</b><code>{color.blue}</code></div>
+<div class="sw"><i style="background:var(--msi-accent-3)"></i><b>accent-3</b><code>{color.yellow}</code></div>
+<div class="sw"><i style="background:var(--msi-accent-4)"></i><b>accent-4</b><code>{color.purple}</code></div>
+<div class="sw"><i style="background:var(--msi-accent-5)"></i><b>accent-5</b><code>{color.mint}</code></div>
+<div class="sw"><i style="background:var(--msi-accent-6)"></i><b>accent-6</b><code>{color.lilac}</code></div>
+<div class="sw"><i style="background:var(--msi-accent-7)"></i><b>accent-7</b><code>{color.salmon}</code></div>
+<div class="sw"><i style="background:var(--msi-accent-8)"></i><b>accent-8</b><code>{color.olive}</code></div>
+      </div></div></section>
+
+    <section class="msi-card" style="--accent:var(--msi-accent-2)"><div class="msi-card-head"><span>TYPE</span><span class="r">FONT · SIZE</span></div>
+      <div class="msi-card-body">
+        <div style="font-family:var(--msi-font-display);font-size:30px">Display — 강원교육 제목체</div>
+        <div style="font-family:var(--msi-font-round);font-weight:700;font-size:20px">Round — 쿠키런 소제목·버튼</div>
+        <div>Body — 메이플스토리 본문. 친근한 해요체로 써요.</div>
+        <div style="font-family:var(--msi-font-pixel)">PIXEL — SILKSCREEN LABEL_01</div>
+        <hr style="border:0;border-top:2px dashed var(--msi-divider);width:100%">
+<div style="font-size:var(--msi-fs-display-lg)"><code>display-lg · 30px</code> 데이터로 생각해요</div>
+<div style="font-size:var(--msi-fs-display-md)"><code>display-md · 25px</code> 데이터로 생각해요</div>
+<div style="font-size:var(--msi-fs-title)"><code>title · 20px</code> 데이터로 생각해요</div>
+<div style="font-size:var(--msi-fs-subtitle)"><code>subtitle · 17px</code> 데이터로 생각해요</div>
+<div style="font-size:var(--msi-fs-button)"><code>button · 18px</code> 데이터로 생각해요</div>
+<div style="font-size:var(--msi-fs-input)"><code>input · 16px</code> 데이터로 생각해요</div>
+<div style="font-size:var(--msi-fs-body)"><code>body · 15px</code> 데이터로 생각해요</div>
+<div style="font-size:var(--msi-fs-small)"><code>small · 14px</code> 데이터로 생각해요</div>
+<div style="font-size:var(--msi-fs-pixel)"><code>pixel · 11px</code> 데이터로 생각해요</div>
+<div style="font-size:var(--msi-fs-pixel-xs)"><code>pixel-xs · 9px</code> 데이터로 생각해요</div>
+      </div></section>
+
+    <section class="msi-card" style="--accent:var(--msi-accent-3)"><div class="msi-card-head"><span>ACTIVITY_1</span><span class="r">COMPONENTS</span></div>
+      <div class="msi-card-body">
+        <div class="msi-act-line"><div class="msi-num">1</div><h2 class="msi-h2">부품 모음</h2></div>
+        <p class="msi-small" style="margin:0">카드 accent 는 style="--accent:var(--msi-accent-1~8)" 로 돌려 써요.</p>
+        <div class="row"><button class="msi-btn" type="button">주요 버튼</button><button class="msi-btn secondary" type="button">보조 버튼</button>
+          <button class="msi-chip" type="button" aria-pressed="false">칩</button><button class="msi-chip" type="button" aria-pressed="true">고른 칩</button>
+          <span class="msi-tag">READ_ME</span></div>
+        <div class="row"><span class="msi-status past">완료</span><span class="msi-status live">진행 중</span><span class="msi-status upcoming">예정</span></div>
+        <label class="msi-label">이름<input class="msi-field" placeholder="이름을 적어요"></label>
+        <textarea class="msi-field" placeholder="여기에 적어요"></textarea>
+        <div class="msi-check-row is-on"><span class="box">✓</span>체크 행(고른 상태)</div>
+        <div class="msi-hint-grid">
+          <div class="msi-hint-box"><span class="k">HINT_01</span><span class="t">힌트 제목</span><span class="d">설명 글.</span></div>
+          <div class="msi-hint-box" style="background:var(--msi-green)"><span class="k">HINT_02</span><span class="t">힌트 제목</span><span class="d">상자마다 색을 돌려 써요.</span></div>
+        </div>
+        <div class="msi-note"><span class="k">NOTE</span><div>NOTE 상자 — 짧은 안내.</div></div>
+        <div class="msi-table-scroll"><table class="msi-table"><tr><th>교시</th><th>과목</th></tr><tr><td>1</td><td>정보</td></tr><tr><td>2</td><td>수학</td></tr></table></div>
+      </div></section>
+
+    <section class="msi-card" style="--accent:var(--msi-accent-4)"><div class="msi-card-head"><span>ACTIVITY_PARTS</span><span class="r">AI/01 · parts.md</span></div>
+      <div class="msi-card-body">
+        <div class="msi-act-line"><h2 class="msi-h2">활동 부품(새 차시 틀 = ai/01)</h2></div>
+        <div class="msi-table-scroll"><table class="msi-concept-table"><tr><th>낱말</th><th>뜻</th><th>예</th></tr><tr><td>인공지능</td><td>사람의 <input class="msi-field" style="display:inline-block;width:70px;padding:4px 8px" aria-label="예시 빈칸"> 같은 지적 능력을 흉내 낸 소프트웨어</td><td>낙서 알아맞히기</td></tr></table></div>
+        <div class="msi-cards"><div class="msi-concept-card"><div class="ic">🏷️</div><div class="t">레이블</div><p>데이터에 붙인 정답 이름표</p><p class="ex">시험공부라면? → 정답</p></div><div class="msi-concept-card"><div class="ic">📚</div><div class="t">학습 데이터</div><p>레이블과 함께 보여 주는 데이터</p><p class="ex">시험공부라면? → 문제집</p></div><div class="msi-concept-card"><div class="ic">📝</div><div class="t">테스트 데이터</div><p>학습에 쓰지 않은 새 데이터</p><p class="ex">시험공부라면? → 처음 보는 시험</p></div></div>
+        <div class="msi-match"><div class="msi-tray"><button class="msi-pill" type="button">인공지능 소프트웨어</button><button class="msi-pill" type="button">일반 소프트웨어</button></div><div class="msi-match-row"><span class="d">틱톡 추천 피드</span><span class="msi-slot">인공지능 소프트웨어</span></div><div class="msi-match-row"><span class="d">매일 7시 알람</span><span class="msi-slot"></span></div><div class="msi-ctl"><button class="msi-pill" type="button">✅ 정답 확인</button><button class="msi-pill" type="button">🔀 다시 섞기</button></div></div>
+        <div class="msi-pick row"><button class="msi-pill" type="button">학습할 때 이미 본 영상들</button><button class="msi-pill" type="button" data-s="ok">✓ 학습에 쓰지 않은 새 영상들</button></div>
+        <div class="msi-feedback" data-s="ok">⭕ 정답이에요! 학습에 쓰지 않은 새 데이터로 시험해야 진짜 실력을 알 수 있어요.</div>
+        <div class="msi-ox"><div class="q"><span class="msi-num">1</span><span class="t">디데이 앱은 인공지능 소프트웨어이다.</span><span class="oxb"><button class="msi-pill" type="button" data-s="no">O</button><button class="msi-pill" type="button">X</button></span><span class="why" data-s="no">❌ 오답이에요. 정해진 규칙대로만 움직이는 일반 소프트웨어예요.</span></div></div>
+      </div></section>
+    <div class="row"><section class="msi-card" style="--accent:var(--msi-accent-1);flex:1 1 90px"><div class="msi-card-head"><span>ACCENT_1</span></div><div class="msi-card-body" style="padding:10px"> </div></section><section class="msi-card" style="--accent:var(--msi-accent-2);flex:1 1 90px"><div class="msi-card-head"><span>ACCENT_2</span></div><div class="msi-card-body" style="padding:10px"> </div></section><section class="msi-card" style="--accent:var(--msi-accent-3);flex:1 1 90px"><div class="msi-card-head"><span>ACCENT_3</span></div><div class="msi-card-body" style="padding:10px"> </div></section><section class="msi-card" style="--accent:var(--msi-accent-4);flex:1 1 90px"><div class="msi-card-head"><span>ACCENT_4</span></div><div class="msi-card-body" style="padding:10px"> </div></section><section class="msi-card" style="--accent:var(--msi-accent-5);flex:1 1 90px"><div class="msi-card-head"><span>ACCENT_5</span></div><div class="msi-card-body" style="padding:10px"> </div></section><section class="msi-card" style="--accent:var(--msi-accent-6);flex:1 1 90px"><div class="msi-card-head"><span>ACCENT_6</span></div><div class="msi-card-body" style="padding:10px"> </div></section><section class="msi-card" style="--accent:var(--msi-accent-7);flex:1 1 90px"><div class="msi-card-head"><span>ACCENT_7</span></div><div class="msi-card-body" style="padding:10px"> </div></section><section class="msi-card" style="--accent:var(--msi-accent-8);flex:1 1 90px"><div class="msi-card-head"><span>ACCENT_8</span></div><div class="msi-card-body" style="padding:10px"> </div></section></div>
+  </div>
+</div>
+<div class="msi-foot"><span class="msi-floaty">✨</span><span>design/ — tokens.css · components.css</span></div>
+</div></div>
+</body></html>
