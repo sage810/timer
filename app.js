@@ -15,7 +15,7 @@
   ['announce', 'soundBtn', 'fsBtn', 'scrSetup', 'scrRun', 'scrDone', 'setupH',
     'minDial', 'kWedge', 'kHand', 'kKnob', 'secDial', 'sWedge', 'sHand', 'sKnob', 'readout',
     'setupForm', 'minSel', 'secSel', 'endLine', 'endText', 'timeErr', 'taskInp',
-    'runTask', 'runStatus', 'runStatusText', 'digits', 'runDisc', 'runWedge', 'runHand', 'pauseBadge',
+    'runTask', 'digits', 'runDisc', 'runWedge', 'runHand', 'pauseBadge',
     'runCtl', 'pauseBtn', 'pauseLabel', 'stopBtn', 'confirmRow', 'confirmQ', 'keepBtn', 'quitBtn',
     'doneHead', 'doneTag', 'doneInner', 'doneH', 'doneSub', 'streak', 'streakText', 'restRow', 'restSel',
     'restBtn', 'restLabel', 'againBtn', 'againLabel', 'homeBtn', 'muteBtn'].forEach((id) => { el[id] = $(id); });
@@ -301,12 +301,6 @@
       last.secs = secs;
     }
     if (force || soon !== last.soon || S.paused !== last.paused || S.mode !== last.mode || S.confirm !== last.confirm) {
-      let text = S.mode === 'break' ? '쉬는 중' : '집중하는 중';
-      let cls = S.mode === 'break' ? 'st st-rest' : 'st st-live';
-      if (soon) { text = '곧 끝나요'; cls = 'st st-soon'; }
-      if (S.paused) { text = '잠깐 멈춤'; cls = 'st st-pause'; }
-      el.runStatus.className = cls;
-      el.runStatusText.textContent = text;
       el.runWedge.setAttribute('fill', soon ? 'url(#gSoon)' : (S.mode === 'break' ? 'url(#gRest)' : 'url(#gFocus)'));
       el.digits.classList.toggle('is-paused', S.paused);
       el.pauseBadge.style.display = S.paused ? '' : 'none';

@@ -103,7 +103,7 @@
 
   // ── 위치 알아내기: 화면(첫 화면·타이머·끝난 화면) › 부분(제목줄·시계·설정 카드…) · 칸 이름 ──
   var SCREENS = { scrSetup: '첫 화면', scrRun: '타이머 화면', scrDone: '끝난 화면' };
-  var PARTS = [['.tb', '제목줄'], ['.dialbox', '시계'], ['.setup-card', '설정 카드'], ['.cluster', '할 일·상태'], ['.dg', '숫자'],
+  var PARTS = [['.tb', '제목줄'], ['.dialbox', '시계'], ['.setup-card', '설정 카드'], ['.cluster', '할 일'], ['.dg', '숫자'],
     ['.disc', '원판'], ['.ctl', '멈추기·그만하기 버튼'], ['.confirm', '그만할까요 줄'], ['.rest-row', '쉬는 시간 줄'], ['.dc-ft', '아래 버튼'], ['.dcard', '끝난 카드']];
   function locate(el) {
     var parts = [];

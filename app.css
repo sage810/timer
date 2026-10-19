@@ -157,12 +157,6 @@ body{background:var(--msi-role-page-bg);-webkit-font-smoothing:antialiased;-moz-
 .task{display:inline-flex;align-items:center;gap:10px;max-width:100%;min-height:44px;padding:5px 16px 5px 6px;border:var(--msi-bw-default) solid var(--msi-ink);border-radius:12px;background:var(--msi-paper);box-shadow:var(--msi-shadow-chip)}
 .tk-k{flex:none;font-family:var(--msi-font-pixel);font-size:var(--msi-fs-pixel);letter-spacing:.5px;line-height:1;padding:6px 8px;border:2px solid var(--msi-ink);border-radius:var(--msi-radius-tag);background:var(--msi-yellow)}
 .tk-t{font-family:var(--msi-font-round);font-weight:700;font-size:clamp(18px,3.2vmin,30px);line-height:1.3;overflow-wrap:anywhere}
-.st{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px;border-radius:var(--msi-radius-pill);font-family:var(--msi-font-round);font-weight:700;font-size:clamp(15px,2.4vmin,22px);white-space:nowrap}
-.st i{flex:none;width:10px;height:10px;border-radius:50%;background:currentColor}
-.st-live{background:var(--msi-status-live-bg);color:var(--msi-status-live-ink)}
-.st-rest{background:var(--msi-mint)}
-.st-soon{background:var(--msi-yellow)}
-.st-pause{background:var(--msi-page)}
 .dg{display:flex;justify-content:center;font-family:var(--msi-font-round);font-weight:700;font-size:clamp(72px,17vmin,200px);line-height:1;color:var(--msi-ink);text-shadow:5px 5px 0 rgba(75,59,107,.16)}
 .dg .n{display:inline-block;width:.62em;text-align:center}
 .dg .c{display:inline-block;width:.34em;text-align:center;transform:translateY(-.05em)}
