@@ -261,13 +261,13 @@
     el.kWedge.setAttribute('d', arc(166, 166, 124, mA));
     const kp = pt(166, 166, 112, mA);
     el.kHand.setAttribute('x2', kp[0]); el.kHand.setAttribute('y2', kp[1]);
-    el.kKnob.setAttribute('transform', `translate(${kp[0]} ${kp[1]})`);
+    el.kKnob.setAttribute('transform', `translate(${kp[0]} ${kp[1]}) rotate(${mA})`);
     el.kKnob.setAttribute('aria-valuenow', String(S.min));
     el.kKnob.setAttribute('aria-valuetext', S.min + '분');
     el.sWedge.setAttribute('d', arc(110, 116, 66, sA));
     const sp = pt(110, 116, 52, sA);
     el.sHand.setAttribute('x2', sp[0]); el.sHand.setAttribute('y2', sp[1]);
-    el.sKnob.setAttribute('transform', `translate(${sp[0]} ${sp[1]})`);
+    el.sKnob.setAttribute('transform', `translate(${sp[0]} ${sp[1]}) rotate(${sA})`);
     el.sKnob.setAttribute('aria-valuenow', String(S.sec));
     el.sKnob.setAttribute('aria-valuetext', S.sec + '초');
     const tot = focusSec();

@@ -142,8 +142,8 @@ body{background:var(--msi-role-page-bg);-webkit-font-smoothing:antialiased;-moz-
 .knob{cursor:grab;outline:none}
 .knob .ring{fill:none;stroke:var(--msi-ink);stroke-width:3;opacity:0}
 .knob:focus-visible .ring{opacity:1}
-.knob .grip{fill:var(--msi-paper);stroke:var(--msi-ink);stroke-width:3.5}
-.knob .dot{fill:var(--msi-ink)}
+.knob .hit{fill:transparent}
+.knob .tip{fill:var(--msi-ink);stroke:var(--msi-ink);stroke-width:3;stroke-linejoin:round}
 .dragging .knob{cursor:grabbing}
 .pin{fill:var(--msi-paper);stroke:var(--msi-ink);stroke-width:3}
 .pin-dot{fill:var(--msi-ink)}
