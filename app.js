@@ -128,12 +128,12 @@
     const p = pt(cx, cy, r, a);
     return `M ${cx} ${cy} L ${cx} ${cy - r} A ${r} ${r} 0 ${a > 180 ? 1 : 0} 1 ${p[0]} ${p[1]} Z`;
   }
-  // 남은 비율 f 만큼 — 바늘 자리에서 12시까지(타이머 원판, 시계 방향으로 줄어듦)
+  // 남은 비율 f 만큼 — 12시에서 바늘 자리까지(타이머 원판, 바늘이 반시계 방향으로 돌며 줄어듦)
   function leftWedge(f) {
     if (f >= 0.9995) return 'M 166 34 A 132 132 0 1 1 166 298 A 132 132 0 1 1 166 34 Z';
     if (f <= 0.0005) return '';
-    const p = pt(166, 166, 132, (1 - f) * 360);
-    return `M 166 166 L ${p[0]} ${p[1]} A 132 132 0 ${f > 0.5 ? 1 : 0} 1 166 34 Z`;
+    const p = pt(166, 166, 132, f * 360);
+    return `M 166 166 L 166 34 A 132 132 0 ${f > 0.5 ? 1 : 0} 1 ${p[0]} ${p[1]} Z`;
   }
 
   /* ── 타이머 ── */
@@ -286,7 +286,7 @@
     const rem = remaining();
     const frac = S.totalMs > 0 ? Math.min(1, Math.max(0, rem / S.totalMs)) : 0;
     el.runWedge.setAttribute('d', leftWedge(frac));
-    const hp = pt(166, 166, 124, (1 - frac) * 360);
+    const hp = pt(166, 166, 124, frac * 360);
     el.runHand.setAttribute('x2', hp[0]); el.runHand.setAttribute('y2', hp[1]);
     const secs = Math.ceil(rem / 1000);
     const soon = rem <= Math.min(60000, S.totalMs * 0.2);
