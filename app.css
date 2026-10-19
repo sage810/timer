@@ -154,9 +154,10 @@ body{background:var(--msi-role-page-bg);-webkit-font-smoothing:antialiased;-moz-
 /* ── 타이머 화면 ── */
 .run{display:flex;flex-direction:column;align-items:center;gap:10px}
 .cluster{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px 12px;max-width:100%}
-.task{display:inline-flex;align-items:center;gap:10px;max-width:100%;min-height:44px;padding:5px 16px 5px 6px;border:var(--msi-bw-default) solid var(--msi-ink);border-radius:12px;background:var(--msi-paper);box-shadow:var(--msi-shadow-chip)}
+.task{max-width:100%;margin:0;text-align:center}
+.tk-cap{display:block;margin-bottom:4px;font-family:var(--msi-font-round);font-weight:700;font-size:clamp(14px,1.8vmin,18px);color:var(--msi-muted-2)}
 .tk-k{flex:none;font-family:var(--msi-font-pixel);font-size:var(--msi-fs-pixel);letter-spacing:.5px;line-height:1;padding:6px 8px;border:2px solid var(--msi-ink);border-radius:var(--msi-radius-tag);background:var(--msi-yellow)}
-.tk-t{font-family:var(--msi-font-round);font-weight:700;font-size:clamp(18px,3.2vmin,30px);line-height:1.3;overflow-wrap:anywhere}
+.tk-t{padding:0 6px;font-family:var(--msi-font-round);font-weight:700;font-size:clamp(20px,3.4vmin,32px);line-height:1.3;word-break:keep-all;overflow-wrap:anywhere;background:linear-gradient(transparent 58%,var(--msi-pink) 58%,var(--msi-pink) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .dg{display:flex;justify-content:center;font-family:var(--msi-font-round);font-weight:700;font-size:clamp(72px,17vmin,200px);line-height:1;color:var(--msi-ink);text-shadow:5px 5px 0 rgba(75,59,107,.16)}
 .dg .n{display:inline-block;width:.62em;text-align:center}
 .dg .c{display:inline-block;width:.34em;text-align:center;transform:translateY(-.05em)}

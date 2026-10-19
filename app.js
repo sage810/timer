@@ -15,7 +15,7 @@
   ['announce', 'soundBtn', 'fsBtn', 'scrSetup', 'scrRun', 'scrDone', 'setupH',
     'minDial', 'kWedge', 'kHand', 'kKnob', 'secDial', 'sWedge', 'sHand', 'sKnob', 'readout',
     'setupForm', 'minSel', 'secSel', 'endLine', 'endText', 'timeErr', 'taskInp',
-    'runTask', 'digits', 'runDisc', 'runWedge', 'runHand', 'pauseBadge',
+    'runTask', 'runCap', 'digits', 'runDisc', 'runWedge', 'runHand', 'pauseBadge',
     'runCtl', 'pauseBtn', 'pauseLabel', 'stopBtn', 'confirmRow', 'confirmQ', 'keepBtn', 'quitBtn',
     'doneHead', 'doneTag', 'doneInner', 'doneH', 'doneSub', 'streak', 'streakText', 'restRow', 'restSel',
     'restBtn', 'restLabel', 'againBtn', 'againLabel', 'homeBtn', 'muteBtn'].forEach((id) => { el[id] = $(id); });
@@ -307,6 +307,7 @@
       el.pauseBtn.classList.toggle('is-paused', S.paused);
       el.pauseLabel.textContent = S.paused ? '계속하기' : '멈추기';
       el.runTask.textContent = S.mode === 'break' ? '쉬는 시간' : (S.task || '집중 시간');
+      el.runCap.hidden = S.mode === 'break';
       el.runCtl.hidden = S.confirm;
       el.confirmRow.hidden = !S.confirm;
       el.confirmQ.textContent = S.mode === 'break' ? '쉬는 시간을 그만할까요?' : '집중을 그만할까요?';
